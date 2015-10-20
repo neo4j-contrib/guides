@@ -6,7 +6,7 @@ var reload      = browserSync.reload;
 /**
  * Compile jade files into HTML
  */
-gulp.task('templates', function() {
+gulp.task('build', function() {
 
     var YOUR_LOCALS = {};
 
@@ -14,19 +14,23 @@ gulp.task('templates', function() {
         .pipe(jade({
             locals: YOUR_LOCALS
         }))
-        .pipe(gulp.dest('./preview/content/guides/'))
+        .pipe(gulp.dest('./dist/'))
+});
+gulp.task('preview', ['build'], function() {
+   return gulp.src('./dist/*')
+       .pipe(gulp.dest('./preview/content/guides/'))
 });
 
 /**
  * Important!!
  * Separate task for the reaction to `.jade` files
  */
-gulp.task('jade-watch', ['templates'], reload);
+gulp.task('jade-watch', ['preview'], reload);
 
 /**
  * Serve and watch the scss/jade files for changes
  */
-gulp.task('default', ['templates'], function () {
+gulp.task('default', ['preview'], function () {
 
     browserSync({server: './preview/'});
 
