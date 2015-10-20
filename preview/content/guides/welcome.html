@@ -1,0 +1,31 @@
+<article class="guide">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4"><img src="images/welcome-logo.png" class="img-responsive">
+        <p class="lead text-center">{{ neo4j.version }}</p>
+      </div>
+      <div class="col-sm-4">
+        <h3>Getting started</h3>
+        <p class="lead">by learning about Neo4j...</p><br>
+        <ul class="big undecorated">
+          <li><a play-topic="intro">Intro</a> - a guided tour</li>
+          <li><a play-topic="concepts">Concepts</a> - GraphDB 101</li>
+          <li><a play-topic="cypher">Cypher</a> - query language</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h3>Jump into code</h3>
+        <p class="lead">with a mini graph app...</p><br>
+        <ul class="big undecorated">
+          <li><a play-topic="movie-graph">The Movie Graph</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="hero-unit">
+      <p ng-class="{'motd-bang': motd.callToAction.bang}"><a href="{{ motd.callToAction.u}}">{{ motd.callToAction.d }}</a></p>
+    </div>
+    <footer>
+      <p>Copyright &copy;<a href="http://neotechnology.com/" class="no-icon"> Neo Technology</a>&nbsp;2002–<span>2015</span></p>
+    </footer>
+  </div>
+</article>

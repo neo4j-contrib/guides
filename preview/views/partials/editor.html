@@ -1,0 +1,28 @@
+<div id="editor" ng-controller="EditorCtrl" ng-mousedown="focusEditor($event)" ng-class="{'file-loaded': settings.filemode &amp;&amp; editor.document.id, 'maximize-editor': editor.maximized}">
+  <div ng-if="settings.filemode &amp;&amp; editor.document.id" class="file-bar slide-down">
+    <div class="title">{{editor.document.content | autotitle}}
+    </div>
+    <ul class="file-actions list-inline pull-left">
+      <li ng-class="{'modified': editor.hasChanged()}"><a ng-click="star()" class="fa fa-star">Save</a></li>
+      <li><a ng-click="create()" class="fa fa-plus">New</a></li>
+      <li><a ng-click="clone()" class="fa fa-code-fork">Clone</a></li>
+      <li><a exportable ng-click="exportScript(editor.content)" tooltip="Export to file" class="fa fa-download">Download</a></li>
+    </ul>
+    <ul class="file-actions list-inline pull-right">
+      <li><a ng-click="editor.execScript(editor.content)" class="button fa fa-play"></a></li>
+      <li><a ng-click="editor.setContent(&quot;&quot;)" class="button fa fa-times"></a></li>
+    </ul>
+  </div>
+  <div class="view-editor"><span ng-class="{'one-line': editorOneLine, 'disable-highlighting': disableHighlighting}">
+      <div class="prompt code-style">$</div>
+      <ui-codemirror ui-codemirror-opts="{gutters:['cypher-hints'], theme: 'neo', mode: 'cypher', autofocus: true, lineNumbers: true, lineWrapping: true, onLoad: codemirrorLoaded}" ng-model="editor.content" placeholder="{{motd.tip}}"></ui-codemirror></span>
+    <ul ng-if="!(settings.filemode &amp;&amp; editor.document.id)" class="controls list-inline">
+      <li><a ng-class="{active: editorHasContent, 'enabled': editor.document.id, 'changed': editor.hasChanged()}" ng-click="star()" class="balled golden"><i ng-class="{'fa-exclamation': editor.hasChanged()}" class="fa fa-star"></i></a></li>
+      <li ng-if="!settings.filemode"><a ng-click="editor.setContent(&quot;&quot;)" ng-class="{active: editorHasContent}" class="balled add"><i class="fa fa-plus"></i></a></li>
+      <li><a ng-click="editor.execScript(editor.content)" ng-class="{active: editorHasContent}" class="balled success"><i class="fa fa-play"></i></a></li>
+    </ul>
+    <div ng-if="editor.showMessage" ng-class="editor.errorCode" class="message-bar error slide-down"><span ng-bind-html-unsafe="editor.errorMessage"></span> Type <code click-to-code="':help commands'">:help commands</code> for a list of available commands.
+      <div class="actions"><a ng-click="editor.showMessage = null" class="fa fa-times-circle"></a></div>
+    </div>
+  </div>
+</div>

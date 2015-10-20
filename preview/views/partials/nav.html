@@ -1,0 +1,18 @@
+<div id="nav">
+  <ul class="nav list-group">
+    <li ng-class="{active: showingDrawer(&quot;database&quot;) }" class="nav-header">
+      <div ng-click="toggleDrawer(&quot;database&quot;)" class="cover"></div><a>Neo4j
+        <div fancy-logo ng-class="{loading: currentFrame.isLoading}" class="logo">
+          <div class="ball one"></div>
+          <div class="ball two"></div>
+          <div class="ball three"></div>
+        </div></a>
+    </li>
+    <li ng-class="{active: showingDrawer(&quot;scripts&quot;) }"><a ng-click="toggleDrawer(&quot;scripts&quot;)" class="fa fa-star"></a></li>
+    <li ng-class="{active: showingDrawer(&quot;info&quot;) }"><a ng-click="toggleDrawer(&quot;info&quot;)" class="fa fa-info-circle"></a></li>
+  </ul>
+  <ul class="nav list-group bottom">
+    <li ng-class="{active: showingDrawer(&quot;preferences&quot;) }"><a ng-click="toggleDrawer(&quot;preferences&quot;)" class="fa fa-cog"></a></li>
+    <li ng-class="{active: showingDrawer(&quot;credits&quot;) }"><a ng-click="toggleDrawer(&quot;credits&quot;)">&#64;</a></li>
+  </ul>
+</div>
