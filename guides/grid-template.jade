@@ -1,0 +1,55 @@
+article.guide
+  .container-fluid
+    .row
+      .col-sm-3
+        .box-max
+          a(href="http://neo4j.com")
+            img.img-responsive(src='images/neo4j-world.png')
+          p.lead.text-center Guide Preview
+      .col-sm-9
+        .teaser.teaser-3
+          h3 How-to
+          p.lead Create a custom Neo4j Browser guide
+          .icon-holder
+            img.icon(src="images/learn-icon.png")
+            ul.topic-bullets
+              li Create content
+              li Preview locally
+              li Publish to server
+            .clearfix
+          button.btn.btn-cta(play-topic='how-to-guide') Learn how to create 
+
+        .teaser.teaser-3
+          h3 Library
+          p.lead Curated collection of guides
+          .icon-holder
+            img.icon(src="images/books-icon.png")
+            ul.topic-bullets
+              li Cypher references
+              li Domain examples
+              li Modeling techniques
+            .clearfix
+          button.btn.btn-cta(play-topic='guide-library') Browse the library
+
+        .teaser.teaser-3
+          h3 What's this?
+          p.lead A slightly modified Neo4j Browser
+          .icon-holder
+            img.icon(src="images/neo4j-icon.png")
+            ul.topic-bullets
+              li Static html+css+scripts
+              li 
+                a(href="http://www.browsersync.io") Browsersync
+                |  host
+              li No proxy for queries
+            .clearfix
+
+    .hero-unit
+      p(ng-class="{'motd-bang': motd.callToAction.bang}")
+        a(href="{{ motd.callToAction.u}}") {{ motd.callToAction.d }}
+
+    footer.tight
+      p.text-muted Copyright &copy;
+        a.no-icon(href='http://neo4j.com/')  Neo Technology
+        | &nbsp;2002–
+        span= new Date().getFullYear()

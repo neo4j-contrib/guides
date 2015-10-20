@@ -17,4 +17,4 @@ Run preview server locally:
 
 - `npm install`
 - `gulp`
-- open [http://localhost:3000]
+- open [http://localhost:3000](http://localhost:3000)
